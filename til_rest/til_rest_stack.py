@@ -1,9 +1,14 @@
 from aws_cdk import (
     # Duration,
     Stack,
+    aws_lambda,
+    aws_s3,
+    aws_lambda_python_alpha
     # aws_sqs as sqs,
 )
 from constructs import Construct
+from os import path
+
 
 class TilRestStack(Stack):
 
@@ -17,3 +22,12 @@ class TilRestStack(Stack):
         #     self, "TilRestQueue",
         #     visibility_timeout=Duration.seconds(300),
         # )
+        # bucket = aws_s3.Bucket(self, "til_rest", versioned=True)
+
+        fn = aws_lambda_python_alpha.PythonFunction(self, 
+            "til_rest_lambda",
+            entry="./src",
+            runtime=aws_lambda.Runtime.PYTHON_3_9,
+            index="main.py",
+            handler="handler"
+        )
