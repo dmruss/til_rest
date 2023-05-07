@@ -28,9 +28,9 @@ async def post_fact(fact: Fact):
 
         response = ddb.put_item(TableName=TABLE_NAME,
             Item={
-            'id': {'S': uuid.uuid4()},
+            'id': {'S': str(uuid.uuid4())},
             'text':{'S':fact.text},
-            'date': {'S': datetime.datetime.now().strftime('%D') }
+            'date': {'N': str(int(datetime.datetime.timestamp(datetime.datetime.now())))}
             })
         return 'Success'
     except Exception as e:

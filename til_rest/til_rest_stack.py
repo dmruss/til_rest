@@ -4,7 +4,8 @@ from aws_cdk import (
     aws_lambda,
     aws_lambda_python_alpha,
     aws_dynamodb,
-    aws_apigateway
+    aws_apigateway,
+    aws_iam
 )
 from constructs import Construct
 from os import path
@@ -15,7 +16,7 @@ class TilRestStack(Stack):
     def __init__(self, scope: Construct, construct_id: str, **kwargs) -> None:
         super().__init__(scope, construct_id, **kwargs)
 
-        
+
         table = aws_dynamodb.Table(self, "til_rest_table",
             partition_key=aws_dynamodb.Attribute(name="id", type=aws_dynamodb.AttributeType.STRING)
         )
@@ -32,7 +33,7 @@ class TilRestStack(Stack):
             
         )
 
-        table.grant_read_data(fn)
+        table.grant_read_write_data(fn)
 
         method_options = aws_apigateway.MethodOptions(api_key_required=True)
         stage_options = aws_apigateway.StageOptions(stage_name='dev')
