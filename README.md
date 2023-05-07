@@ -1,58 +1,25 @@
+# til_rest (Today I Learned...)
 
-# Welcome to your CDK Python project!
+til_rest is a tool to help you remember random facts.  I know that when I am working on a project 
+I will come across pieces of information that fit more under 'general knowledge' than the specific project I am working on.
+Pieces of minutia that could save minutes or hours the next time that I need to remember it.
+That is where this tool is useful: when you come across one of these facts, simply add it to the list and come check it out later.
+Your fact will be recorded along with the date and time it was recorded, and any tags that you want to add to it.
+When you want to recall the fact, simply search using a list of keywords and til_rest will return a list of possible matching facts.
 
-This is a blank project for CDK development with Python.
+## What is included
 
-The `cdk.json` file tells the CDK Toolkit how to execute your app.
+til_rest is built as a serverless cloud application running in AWS.  This repo includes code to set up all the necessary infrastructure and permissions to get up and running.  The flow is the common api gateway -> lambda -> dynamodb paradigm.
+The endpoint is secured using an api key.
 
-This project is set up like a standard Python project.  The initialization
-process also creates a virtualenv within this project, stored under the `.venv`
-directory.  To create the virtualenv it assumes that there is a `python3`
-(or `python` for Windows) executable in your path with access to the `venv`
-package. If for any reason the automatic creation of the virtualenv fails,
-you can create the virtualenv manually.
+## Quickstart
 
-To manually create a virtualenv on MacOS and Linux:
 
-```
-$ python -m venv .venv
-```
 
-After the init process completes and the virtualenv is created, you can use the following
-step to activate your virtualenv.
+## Other setups
 
-```
-$ source .venv/bin/activate
-```
 
-If you are a Windows platform, you would activate the virtualenv like this:
+## Future work
 
-```
-% .venv\Scripts\activate.bat
-```
 
-Once the virtualenv is activated, you can install the required dependencies.
-
-```
-$ pip install -r requirements.txt
-```
-
-At this point you can now synthesize the CloudFormation template for this code.
-
-```
-$ cdk synth
-```
-
-To add additional dependencies, for example other CDK libraries, just add
-them to your `setup.py` file and rerun the `pip install -r requirements.txt`
-command.
-
-## Useful commands
-
- * `cdk ls`          list all stacks in the app
- * `cdk synth`       emits the synthesized CloudFormation template
- * `cdk deploy`      deploy this stack to your default AWS account/region
- * `cdk diff`        compare deployed stack with current state
- * `cdk docs`        open CDK documentation
-
-Enjoy!
+## Feedback
